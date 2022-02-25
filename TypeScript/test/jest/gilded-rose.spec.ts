@@ -26,6 +26,7 @@ describe('Gilded Rose', () => {
 `("'$description' for '$name' with quality '$quality' and sellIn '$sellIn'", ({name, quality, expectedQuality, sellIn, expectedSellIn, description}) => {
       const item1 = new Item(name, sellIn, quality);
       const items = GildedRose.updateQuality([item1]);
+      expect(items.length).toBe(1);
       expect(items[0].name).toBe(name);
       expect(items[0].quality).toBe(expectedQuality);
       expect(items[0].sellIn).toBe(expectedSellIn);
@@ -35,12 +36,23 @@ describe('Gilded Rose', () => {
       const item1 = new Item('abc def', 8, 5);
       const item2 = new Item('Aged Brie', 10, 2);
       const items = GildedRose.updateQuality([item1, item2]);
+      expect(items.length).toBe(2);
       expect(items[0].name).toBe(item1.name);
       expect(items[0].quality).toBe(4);
       expect(items[0].sellIn).toBe(7);
       expect(items[1].name).toBe(item2.name);
       expect(items[1].quality).toBe(3);
       expect(items[1].sellIn).toBe(9);
+    });
+
+    it("should have 0 items if item array is empty", () => {
+      const items = GildedRose.updateQuality([]);
+      expect(items.length).toBe(0);
+    });
+
+    it("should have 0 items if default value is used", () => {
+      const items = GildedRose.updateQuality();
+      expect(items.length).toBe(0);
     });
 });
 
