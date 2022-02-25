@@ -1,7 +1,7 @@
-import Item from "./../models/Item";
-import IUpdateStrategy from "./IUpdateStrategy";
+import Item from "../models/Item";
+import UpdateStrategy from "./update-strategy";
 
-export default class BackstagePassStrategy implements IUpdateStrategy {
+export default class BackstagePassStrategy implements UpdateStrategy {
     updateItem(item: Item) : Item {
         let increaseFactor = this.getIncreaseFactor(item.sellIn);
         let newQuality = 

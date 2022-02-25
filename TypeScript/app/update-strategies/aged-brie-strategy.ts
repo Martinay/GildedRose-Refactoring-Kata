@@ -1,7 +1,7 @@
-import Item from "./../models/Item";
-import IUpdateStrategy from "./IUpdateStrategy";
+import Item from "../models/Item";
+import UpdateStrategy from "./update-strategy";
 
-export default class AgedBrieStrategy implements IUpdateStrategy {    
+export default class AgedBrieStrategy implements UpdateStrategy {    
     constructor(private qualityFactor : number) {}
 
     updateItem(item: Item) : Item {

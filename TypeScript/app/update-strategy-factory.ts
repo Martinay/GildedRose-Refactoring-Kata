@@ -1,13 +1,13 @@
 import Item from "./models/Item";
-import AgedBrieStrategy from "./updateStrategies/AgedBrieStrategy";
-import BackstagePassStrategy from "./updateStrategies/BackstagePassStrategy";
-import ConjuredStrategy from "./updateStrategies/conjuredStrategy";
-import DefaultStrategy from "./updateStrategies/DefaultStrategy";
-import IUpdateStrategy from "./updateStrategies/IUpdateStrategy";
-import NoUpdateStrategy from "./updateStrategies/NoUpdateStrategy";
+import AgedBrieStrategy from "./update-strategies/aged-brie-strategy";
+import BackstagePassStrategy from "./update-strategies/backstage-pass-strategy";
+import ConjuredStrategy from "./update-strategies/conjured-strategy";
+import DefaultStrategy from "./update-strategies/default-strategy";
+import UpdateStrategy from "./update-strategies/update-strategy";
+import NoUpdateStrategy from "./update-strategies/no-update-strategy";
 
 export class UpdateStrategyFactory {
-    static getUpdateStrategy(item: Item): IUpdateStrategy {
+    static getUpdateStrategy(item: Item): UpdateStrategy {
 
         let qualityFactor = item.sellIn <= 0 ? 2 : 1;
 

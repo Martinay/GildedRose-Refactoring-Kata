@@ -1,5 +1,5 @@
 import Item from "./models/Item";
-import { UpdateStrategyFactory } from "./updateStrategyFactory";
+import { UpdateStrategyFactory } from "./update-strategy-factory";
 export class GildedRose {
   private constructor() {}
 
